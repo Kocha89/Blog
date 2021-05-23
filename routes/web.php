@@ -20,5 +20,10 @@ Route::get('/productindex/', 'ProductController@productindex');
 Route::get('/productcreate/', 'ProductController@productcreate');
 Route::get('/productupdate/', 'ProductController@productupdate');
 Route::get('/productdelete/', 'ProductController@productdelete');
+Route::get('/faqindex/', 'FaqController@faqindex');
+Route::get('/faqcreate/', 'FaqController@faqcreate');
+Route::get('/faqupdate/', 'FaqController@faqupdate');
+Route::get('/faqdelete/', 'FaqController@faqdelete');
+
 
 
