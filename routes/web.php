@@ -24,6 +24,10 @@ Route::get('/faqindex/', 'FaqController@faqindex');
 Route::get('/faqcreate/', 'FaqController@faqcreate');
 Route::get('/faqupdate/', 'FaqController@faqupdate');
 Route::get('/faqdelete/', 'FaqController@faqdelete');
+Route::get('/userindex/', 'UserController@userindex');
+Route::get('/usercreate/', 'UserController@usercreate');
+Route::get('/userupdate/', 'UserController@userupdate');
+Route::get('/userdelete/', 'UserController@userdelete');
 
 
 
