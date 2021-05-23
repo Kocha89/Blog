@@ -10,4 +10,9 @@ class HomeController extends Controller
     {
         echo "Главная страница";
     }
+
+    public function about()
+    {
+        echo "Страница О нас";
+    }
 }
