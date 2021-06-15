@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        echo "Главная страница";
+        return view('index');
     }
 
     public function about()

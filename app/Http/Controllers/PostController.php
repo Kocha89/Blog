@@ -8,21 +8,33 @@ class PostController extends Controller
 {
     public function posts()
     {
-        echo "Страница списка новостей";
+        return view('news');
     }
 
-    public function create()
+    public function stalker()
     {
-        echo "Страница создание новости";
+        return view('stalker');
     }
 
-    public function update()
+    public function kanykei()
     {
-        echo "Страница изменения новости";
+        return view('kanykei');
     }
 
-    public function delete()
+    public function school()
     {
-        echo "Роут удаления новости";
+        return view('school');
+    }
+    public function erkin()
+    {
+        return view('erkin');
+    }
+    public function ukraine()
+    {
+        return view('ukraine');
+    }
+    public function geneve()
+    {
+        return view('geneve');
     }
 }

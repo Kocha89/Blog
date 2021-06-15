@@ -14,9 +14,12 @@
 Route::get('/', 'HomeController@index');
 Route::get('/about/', 'HomeController@about');
 Route::get('/posts/', 'PostController@posts');
-Route::get('/create/', 'PostController@create');
-Route::get('/update/', 'PostController@update');
-Route::get('/delete/', 'PostController@delete');
+Route::get('/stalker/', 'PostController@stalker');
+Route::get('/kanykei/', 'PostController@kanykei');
+Route::get('/erkin/', 'PostController@erkin');
+Route::get('/school/', 'PostController@school');
+Route::get('/ukraine/', 'PostController@ukraine');
+Route::get('/geneve/', 'PostController@geneve');
 Route::get('/productindex/', 'ProductController@productindex');
 Route::get('/productcreate/', 'ProductController@productcreate');
 Route::get('/productupdate/', 'ProductController@productupdate');
