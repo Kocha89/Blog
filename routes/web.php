@@ -14,6 +14,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('/about/', 'HomeController@about');
 Route::get('/posts/', 'PostController@posts');
+Route::get('/show/{post_id}', 'PostController@show');
 Route::get('/stalker/', 'PostController@stalker');
 Route::get('/kanykei/', 'PostController@kanykei');
 Route::get('/erkin/', 'PostController@erkin');

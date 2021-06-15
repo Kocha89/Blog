@@ -4,18 +4,20 @@
 <section class="news">
        <div class="container">
             <h1 class='title_new'>Страница списка новостей</h1>
-            <ul class="news__list">
-                <li class="news__list-item">
-                    <a href="/ukraine/" class="news__link">На Украине предложили забрать часть акций «Северного потока-2»</a>
-                </li>
-                <li class="news__list-item">
-                    <a href="/stalker/" class="news__link">Названа дата выхода S.T.A.L.K.E.R. 2</a>
-                </li>
- 
-                <li class="news__list-item">
-                    <a href="/geneve/" class="news__link">В Женеве перед встречей Путина и Байдена закрыли небо для дронов</a>
-                </li>
-            </ul>
+
+            @foreach($posts as $post)                
+                <div>
+                    <div><h2>{{ $post['title'] }}</h2></div>
+                </div>
+            @endforeach
+
+            @if (count($posts) === 1)
+            Здесь есть одна запись!
+            @elseif (count($posts) > 1)
+            Здесь есть много записей!
+            @else
+            Здесь нет записей!
+            @endif
        </div>
 </section>
 
