@@ -4,10 +4,10 @@
 <section class="news">
        <div class="container">
             <h1 class='title_new'>Страница списка новостей</h1>
-
-            @foreach($posts as $post)                
+            id {{ $id }}
+            @foreach($posts as $id => $post)                
                 <div>
-                    <div><h2>{{ $post['title'] }}</h2></div>
+                    <div><h2><a href="{{ route('show', ['post_id'=> $id]) }}">{{ $post['title'] }}</a></h2></div>
                 </div>
             @endforeach
 
