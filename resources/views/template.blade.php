@@ -19,7 +19,10 @@
                     <a href="/posts/" class="menu__link">Новости</a>
                 </li>
                 <li class="menu__list-item">
-                    <a href="" class="menu__link">Личный кабинет</a>
+                    <a href="/login/" class="menu__link">Вход</a>
+                </li>
+                <li class="menu__list-item">
+                    <a href="/register/" class="menu__link">Регистрация</a>
                 </li>
                 <li class="menu__list-item">
                     <a href="/about/" class="menu__link">О Нас</a>

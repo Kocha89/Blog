@@ -69,3 +69,25 @@ ul,li{
 .new__list-item{
     width: 200px;
 }
+.input__form{
+	display: block;
+}
+
+.form__input{
+	display: block;
+}
+
+.profile__text{
+	
+}
+
+.post__title{
+	line-height: 27px;
+    width: 50%;
+}
+
+.textarea{
+	width: 50%;
+    height: 120px;
+    margin-top: 10px;
+}

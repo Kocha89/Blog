@@ -4,7 +4,7 @@
 <section class="news">
        <div class="container">
             <h1 class='title_new'>Страница списка новостей</h1>
-            id {{ $id }}
+            <button><a href="{{ route('create') }}">Создать новость</a></button>
             @foreach($posts as $id => $post)                
                 <div>
                     <div><h2><a href="{{ route('show', ['post_id'=> $id]) }}">{{ $post['title'] }}</a></h2></div>

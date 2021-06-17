@@ -85,6 +85,59 @@ class PostController extends Controller
  
          return view('show', ['post'=> $post]);
     }
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'title' => "required",
+            'text' => "required"
+        ]);
+        echo "Здесь идет сохранение";
+
+        return redirect()->route('create');
+    }
+
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function loginin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => "required",
+            'password' => "required"
+        ]);
+        echo "Здесь идет сохранение";
+
+        return redirect()->route('login');
+    }
+
+   
+    public function register()
+    {
+        return view('register');
+    }
+
+    public function registration(Request $request)
+    {
+        $this->validate($request, [
+            'first_name' => "required",
+            'last_name' => "required",
+            'city' => "required",
+            'email' => "required",
+            'password' => "required",
+            'password_2' => "required"
+        ]);
+        echo "Здесь идет сохранение";
+
+        return redirect()->route('register');
+    }
+
     public function stalker()
     {
         return view('stalker');
