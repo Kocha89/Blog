@@ -16,7 +16,7 @@ Route::get('/about/', 'HomeController@about');
 Route::get('/posts/', 'PostController@posts');
 Route::get('/show/{post_id}', 'PostController@show')->name('show');
 Route::get('/create/', 'PostController@create')->name('create');
-Route::post('/', 'PostController@store')->name('post.store');
+Route::post('/store/', 'PostController@store')->name('post.store');
 Route::get('/login/', 'PostController@login')->name('login');
 Route::post('/loginin/', 'PostController@loginin')->name('post.loginin');
 Route::get('/register/', 'PostController@register')->name('register');
