@@ -5,7 +5,7 @@
        <div class="container">
                 <div>
                     <div><h2>{{ $post['title'] }}</h2></div>
-                    <div><h2>{{ $post['text'] }}</h2></div>
+                    <div><p>{{ $post['text'] }}</p></div>
                 </div>
        </div>
 </section>
