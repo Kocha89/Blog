@@ -5,9 +5,12 @@
        <div class="container">
             <h1 class='title_new'>Страница списка новостей</h1>
             <button><a href="{{ route('create') }}">Создать новость</a></button>
-            @foreach($posts as $id => $post)                
+            @foreach($posts as $post)                
                 <div>
-                    <div><h2><a href="{{ route('show', ['post_id'=> $id]) }}">{{ $post['title'] }}</a></h2></div>
+                    <div><h2><a href="{{ route('show', ['post_id'=> $post->id]) }}">{{ $post->title }}</a></h2></div>
+                    <div><p>{{ $post->text }}</p></div>
+                    <div><a href="{{ route('update', ['post_id'=> $post->id]) }}">Изменить</a></div>
+                    <div><a href="{{ route('delete', ['post_id'=> $post->id]) }}">Удалить</a></div>
                 </div>
             @endforeach
 
