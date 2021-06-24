@@ -10,19 +10,19 @@ class PostController extends Controller
 {
     public function posts()
     {
-        $posts = DB::select('select * from posts');
-
+        $posts = DB::table('posts')->get();
         return view('news', ['posts'=> $posts]);
     }
     public function show(int $post_id)
     {
-        $post = DB::select('select * from posts where id=:id', ['id'=>$post_id]);
-
-        if (count($post)===0) {
-            throw new NotFound();
+        $post = DB::table('posts')
+        ->where('id', $post_id)
+        ->first();
+        if (!isset($post)) {
+            throw new ModelNotFoundException();
         }
  
-         return view('show', ['post'=> $post[0]]);
+         return view('show', ['post'=> $post]);
     }
     public function create()
     {
@@ -33,7 +33,9 @@ class PostController extends Controller
     {
         $title=$request->post('title');
         $text=$request->post('text');
-        DB::insert('insert into posts (title, text) values (:title, :text)', ['title'=>$title, 'text'=>$text]);
+        DB::table('posts')
+        ->insert(['title'=>$title, 'text'=>$text]);
+  
         return redirect()->route('posts');
     }
 
@@ -55,31 +57,35 @@ class PostController extends Controller
 
     public function update(int $post_id)
     {
-        $post = DB::select('select * from posts where id=:id', ['id'=>$post_id]);
-
-        if (count($post)===0) {
-            throw new NotFound();
+        $post = DB::table('posts')
+        ->where('id', $post_id)
+        ->first();
+        if (!isset($post)) {
+            throw new ModelNotFoundException();
         }
  
-         return view('update', ['post'=> $post[0], 'post_id'=>$post_id]);
+         return view('update', ['post'=> $post, 'post_id'=>$post_id]);
     }
 
     public function restore(PostCreateRequest $request, int $post_id)
     {
         $title=$request->post('title');
         $text=$request->post('text');
-        DB::insert('update posts set title=:title, text=:text where id=:id', [
-            'title'=>$title,
-             'text'=>$text,
-             'id' => $post_id
-             ]);
+
+        DB::table('posts')
+        ->where('id', $post_id)
+        ->update(['title'=>$title, 'text'=>$text]);
+
         return redirect()->route('posts');
-         return view('update', ['post'=> $post[0]]);
+
     }
 
     public function delete(int $post_id)
     {
-        $post = DB::delete('delete from posts where id=:id', ['id'=>$post_id]);
+         DB::table('posts')
+        ->where('id', $post_id)
+        ->delete();
+
 
         return redirect()->route('posts');
     }
