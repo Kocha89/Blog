@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $posts = DB::table('posts')->get();
+        $categories = DB::table('category')->get();
+        return view('index', ['posts'=> $posts, 'categories' => $categories]);
     }
 
     public function about()

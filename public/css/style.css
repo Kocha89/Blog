@@ -87,3 +87,10 @@ ul,li{
     height: 120px;
     margin-top: 10px;
 }
+.main_section{
+    display: flex;
+}
+.category{
+    width: 20%;
+    margin-left: 20px;
+}
