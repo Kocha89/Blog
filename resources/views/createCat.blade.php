@@ -13,7 +13,7 @@
             </ul>
         </div>
         @endif
-       <form action="{{ route('post.store') }}" method="post">
+       <form action="{{ route('cat.store') }}" method="post">
            {{ csrf_field() }}
 				<input class="form__input post__title" type="text" name="name" placeholder="Тема записи">
 				<input class="form__input" type="hidden" name="user_id">

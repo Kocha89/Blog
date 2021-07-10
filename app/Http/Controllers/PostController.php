@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostCreateRequest;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use DB;
 
@@ -10,17 +11,12 @@ class PostController extends Controller
 {
     public function posts()
     {
-        $posts = DB::table('posts')->get();
+        $posts =Post::get();
         return view('news', ['posts'=> $posts]);
     }
     public function show(int $post_id)
     {
-        $post = DB::table('posts')
-        ->where('id', $post_id)
-        ->first();
-        if (!isset($post)) {
-            throw new ModelNotFoundException();
-        }
+        $post = Post::findOrfail($post_id);
  
          return view('show', ['post'=> $post]);
     }
@@ -33,8 +29,11 @@ class PostController extends Controller
     {
         $title=$request->post('title');
         $text=$request->post('text');
-        DB::table('posts')
-        ->insert(['title'=>$title, 'text'=>$text]);
+        $post=new Post();
+        $post->title = $title;
+        $post->text = $text;
+        $post->save();
+
   
         return redirect()->route('posts');
     }

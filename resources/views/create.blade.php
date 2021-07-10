@@ -17,7 +17,6 @@
            {{ csrf_field() }}
 				<input class="form__input post__title" type="text" name="title" placeholder="Тема записи">
 				<textarea class="form__input textarea" name="text"></textarea>  
-				<input class="form__input" type="hidden" name="user_id">
 				<input class="form__input" type="submit" name="submit" value="Добавить">
 			</form>
        </div>

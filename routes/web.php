@@ -33,7 +33,7 @@ Route::post('/', 'RegisterController@registration')->name('post.registration');
 Route::group(['prefix' => '/category'], function () {
     Route::get('/', 'CategoryController@categories');
     Route::get('/create/', 'CategoryController@create')->name('createCat');
-    Route::post('/store/', 'CategoryController@store')->name('post.store');
+    Route::post('/store/', 'CategoryController@store')->name('cat.store');
     Route::get('/update/{post_id}', 'CategoryController@update')->name('updateCat');
     Route::post('/update/{post_id}', 'CategoryController@restore')->name('restore');
     Route::get('/delete/{post_id}', 'CategoryController@delete')->name('delete');
