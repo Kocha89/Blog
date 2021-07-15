@@ -35,8 +35,8 @@ Route::group(['prefix' => '/category'], function () {
     Route::get('/create/', 'CategoryController@create')->name('createCat');
     Route::post('/store/', 'CategoryController@store')->name('cat.store');
     Route::get('/update/{post_id}', 'CategoryController@update')->name('updateCat');
-    Route::post('/update/{post_id}', 'CategoryController@restore')->name('restore');
-    Route::get('/delete/{post_id}', 'CategoryController@delete')->name('delete');
+    Route::post('/update/{post_id}', 'CategoryController@restore')->name('restoreCat');
+    Route::get('/delete/{post_id}', 'CategoryController@delete')->name('deleteCat');
 });
 
 

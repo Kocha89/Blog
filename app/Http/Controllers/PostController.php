@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostCreateRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use DB;
+
 
 class PostController extends Controller
 {
@@ -27,48 +27,34 @@ class PostController extends Controller
 
     public function store(PostCreateRequest $request)
     {
-        $title=$request->post('title');
-        $text=$request->post('text');
-        $post=new Post();
-        $post->title = $title;
-        $post->text = $text;
-        $post->save();
+        $post_data=$request->all('title', 'text');
 
+        Post::create($post_data);
   
         return redirect()->route('posts');
     }
 
       public function update(int $post_id)
     {
-        $post = DB::table('posts')
-        ->where('id', $post_id)
-        ->first();
-        if (!isset($post)) {
-            throw new ModelNotFoundException();
-        }
+        $post = Post::findOrfail($post_id);
  
-         return view('update', ['post'=> $post, 'post_id'=>$post_id]);
+        return view('update', ['post'=> $post, 'post_id'=>$post_id]);
     }
 
     public function restore(PostCreateRequest $request, int $post_id)
     {
-        $title=$request->post('title');
-        $text=$request->post('text');
+        $post_data=$request->all('title', 'text');
 
-        DB::table('posts')
-        ->where('id', $post_id)
-        ->update(['title'=>$title, 'text'=>$text]);
-
+        Post::where('id', $post_id)
+              ->update($post_data);
+  
         return redirect()->route('posts');
 
     }
 
     public function delete(int $post_id)
     {
-         DB::table('posts')
-        ->where('id', $post_id)
-        ->delete();
-
+        Post::destroy($post_id);
 
         return redirect()->route('posts');
     }

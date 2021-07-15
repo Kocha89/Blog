@@ -13,7 +13,7 @@
             </ul>
         </div>
         @endif
-       <form action="{{ route('restore', ['post_id'=> $category->id]) }}" method="post">
+       <form action="{{ route('restoreCat', ['post_id'=> $category->id]) }}" method="post">
            {{ csrf_field() }}
 				<input class="form__input post__title" type="text" name="name" value="{{ $category->name }}">
 				<input class="form__input" type="hidden" name="user_id">
