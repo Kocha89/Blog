@@ -16,7 +16,7 @@ class PostController extends Controller
     }
     public function show(int $post_id)
     {
-        $post = Post::findOrfail($post_id);
+        $post = Post::where('id', $post_id)->with('comments')->first();
  
          return view('show', ['post'=> $post]);
     }

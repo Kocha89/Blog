@@ -3,26 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+
 
 class UserController extends Controller
 {
-    public function userindex()
+    public function index()
     {
-        echo "Страница списка пользователей";
+        $users = User::where('id', 1)->with('phone')->first();
+        
+        return view('userindex', ['users' => $users]);
     }
 
-    public function usercreate()
-    {
-        echo "Страница создание нового пользователя";
-    }
-
-    public function userupdate()
-    {
-        echo "Страница изменения пользователя";
-    }
-
-    public function userdelete()
-    {
-        echo "Роут удаления пользователя";
-    }
 }

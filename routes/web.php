@@ -40,6 +40,14 @@ Route::group(['prefix' => '/category'], function () {
 });
 
 
+Route::group(['prefix' => '/comments'], function () {
+    Route::get('/', 'CommentController@store')->name('comments.create');
+    Route::get('/delete/{comment_id}/{post_id}', 'CommentController@delete')->name('comments.delete');
+});
 
+
+Route::group(['prefix' => '/users'], function () {
+    Route::get('/', 'UserController@index')->name('userindex');
+});
 
 
