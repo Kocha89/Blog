@@ -25,6 +25,12 @@
                     <a href="/register/" class="menu__link">Регистрация</a>
                 </li>
                 <li class="menu__list-item">
+                    <a href="{{ route('auth.get.register') }}" class="menu__link">Регистрация2</a>
+                </li>
+                <li class="menu__list-item">
+                    <a href="{{ route('auth.get.login') }}" class="menu__link">Войти</a>
+                </li>
+                <li class="menu__list-item">
                     <a href="/about/" class="menu__link">О Нас</a>
                 </li>
             </ul>

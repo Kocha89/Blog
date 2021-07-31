@@ -14,6 +14,13 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about/', 'HomeController@about');
 
+Route::group(['prefix' => '/auth'], function () {
+    Route::get('/registration', 'Auth\RegisterController@getRegister')->name('auth.get.register');
+    Route::post('/registration', 'Auth\RegisterController@postRegister')->name('auth.post.register');
+    Route::get('/login', 'Auth\LoginController@getLogin')->name('auth.get.login');
+    Route::post('/login', 'Auth\LoginController@postLogin')->name('auth.post.login');
+});
+
 Route::group(['prefix' => '/posts'], function () {
     Route::get('/', 'PostController@posts')->name('posts');
     Route::get('/show/{post_id}', 'PostController@show')->name('show');

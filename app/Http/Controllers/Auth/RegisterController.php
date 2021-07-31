@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\User;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+
+
 
 class RegisterController extends Controller
 {
@@ -35,38 +37,22 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user)
     {
         $this->middleware('guest');
+        $this->user = $user;
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function getRegister()
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        return view('auth.getRegister');
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
+    public function postRegister(RegisterRequest $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $data = $request->all(['email', 'first_name', 'last_name', 'password', 'age', 'city']);
+        $data['password'] = bcrypt($data['password']);
+        $user=$this->user->create($data);
     }
+
 }
