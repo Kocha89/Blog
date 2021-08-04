@@ -16,7 +16,7 @@
                     <div>
                          <div><h2>{{ $post->name }}</h2></div>
                          <div><a href="{{ route('updateCat', ['post_id'=> $post->id]) }}">Изменить</a></div>
-                         <div><a href="{{ route('delete', ['post_id'=> $post->id]) }}">Удалить</a></div>
+                         <div><a href="{{ route('deleteCat', ['post_id'=> $post->id]) }}">Удалить</a></div>
                     </div>
      @endforeach
      </div>

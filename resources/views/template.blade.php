@@ -33,6 +33,9 @@
                 <li class="menu__list-item">
                     <a href="/about/" class="menu__link">О Нас</a>
                 </li>
+                <li class="menu__list-item">
+                    <a href="{{ route('faq') }}" class="menu__link">FAQ</a>
+                </li>
             </ul>
         </nav>
        </div>

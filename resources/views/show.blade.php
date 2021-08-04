@@ -8,7 +8,7 @@
                     <div><p>{{ $post->text }}</p></div>
                     <div><a href="{{ route('update', ['post_id'=> $post->id]) }}">Изменить</a></div>
                 </div>
-       </div>
+
        <div>
        Comments
        <div>
@@ -26,7 +26,7 @@
                     <input class="form__input" type="submit" name="submit" value="Добавить">
             </form>
        </div>
-      
+       </div>  
 </section>
 
 @endsection

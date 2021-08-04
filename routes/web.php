@@ -38,18 +38,28 @@ Route::post('/', 'RegisterController@registration')->name('post.registration');
 
 
 Route::group(['prefix' => '/category'], function () {
-    Route::get('/', 'CategoryController@categories');
-    Route::get('/create/', 'CategoryController@create')->name('createCat');
-    Route::post('/store/', 'CategoryController@store')->name('cat.store');
-    Route::get('/update/{post_id}', 'CategoryController@update')->name('updateCat');
-    Route::post('/update/{post_id}', 'CategoryController@restore')->name('restoreCat');
-    Route::get('/delete/{post_id}', 'CategoryController@delete')->name('deleteCat');
+    Route::get('/', 'CatController@categories');
+    Route::get('/create/', 'CatController@create')->name('createCat');
+    Route::post('/store/', 'CatController@store')->name('cat.store');
+    Route::get('/update/{post_id}', 'CatController@update')->name('updateCat');
+    Route::post('/update/{post_id}', 'CatController@restore')->name('restoreCat');
+    Route::get('/delete/{post_id}', 'CatController@delete')->name('deleteCat');
 });
 
 
 Route::group(['prefix' => '/comments'], function () {
     Route::get('/', 'CommentController@store')->name('comments.create');
     Route::get('/delete/{comment_id}/{post_id}', 'CommentController@delete')->name('comments.delete');
+});
+
+
+Route::group(['prefix' => '/faq'], function () {
+    Route::get('/', 'FaqController@faqindex')->name('faq');
+    Route::get('/create/', 'FaqController@faqcreate')->name('createFaq');
+    Route::post('/store/', 'FaqController@store')->name('faq.store');
+    Route::get('/update/{post_id}', 'FaqController@update')->name('updateFaq');
+    Route::post('/update/{post_id}', 'FaqController@restore')->name('restoreFaq');
+    Route::get('/delete/{post_id}', 'FaqController@delete')->name('deleteFaq');
 });
 
 
